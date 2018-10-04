@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Diagnostics;
 
 namespace BindingSample
 {
@@ -8,13 +6,8 @@ namespace BindingSample
     /// <summary>
     /// ViewModel
     /// </summary>
-    class MainWindowViewModel : INotifyPropertyChanged
+    class MainWindowViewModel : ViewModelBase
     {
-
-        /// <summary>
-        /// Event
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// 四則演算
@@ -62,19 +55,6 @@ namespace BindingSample
         /// 答え
         /// </summary>
         private double _Answer;
-
-        /// <summary>
-        /// PropertyChanged()呼び出し
-        /// </summary>
-        private void CallPropertyChanged()
-        {
-
-            StackFrame Caller = new StackFrame(1);                      //呼び出し元メソッド情報
-            string[] MethodName = Caller.GetMethod().Name.Split('_');   //呼び出し元メソッド名
-
-            PropertyChanged(this, new PropertyChangedEventArgs(MethodName[MethodName.Length - 1]));
-
-        }
 
         /// <summary>
         /// new

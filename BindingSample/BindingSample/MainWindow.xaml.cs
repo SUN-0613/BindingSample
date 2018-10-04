@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace BindingSample
 {
@@ -32,6 +34,20 @@ namespace BindingSample
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             _ViewModel.Calc();
+        }
+
+        /// <summary>
+        /// TextBox.GotFocus
+        /// </summary>
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+            this.Dispatcher.InvokeAsync(() =>
+            {
+                Task.Delay(0);
+                ((TextBox)sender).SelectAll();
+            });
+
         }
 
     }
