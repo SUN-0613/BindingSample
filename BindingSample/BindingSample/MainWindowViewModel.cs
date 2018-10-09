@@ -10,51 +10,9 @@ namespace BindingSample
     {
 
         /// <summary>
-        /// 四則演算
+        /// Model
         /// </summary>
-        private enum ArithmeticEnum
-        {
-            /// <summary>
-            /// 加算
-            /// </summary>
-            Plus = 0,
-            /// <summary>
-            /// 減算
-            /// </summary>
-            Minus,
-            /// <summary>
-            /// 乗算
-            /// </summary>
-            Multi,
-            /// <summary>
-            /// 除算
-            /// </summary>
-            Division
-        }
-
-        /// <summary>
-        /// 左辺
-        /// </summary>
-        private double _Number1;
-
-        /// <summary>
-        /// 四則演算
-        /// 0:加算
-        /// 1:減算
-        /// 2:乗算
-        /// 3:除算
-        /// </summary>
-        private Int32 _Arithmetic;
-
-        /// <summary>
-        /// 右辺
-        /// </summary>
-        private double _Number2;
-
-        /// <summary>
-        /// 答え
-        /// </summary>
-        private double _Answer;
+        private MainWindowModel Model;
 
         /// <summary>
         /// new
@@ -62,58 +20,7 @@ namespace BindingSample
         public MainWindowViewModel()
         {
 
-            /*
-            _Number1 = -1.0d;
-            _Arithmetic = -1;
-            _Number2 = -1.0d;
-            _Answer = -1.0d;
-
-            Number1 = "0";
-            Arithmetic = 0;
-            Number2 = "0";
-            Answer = "0";
-            */
-
-        }
-
-        /// <summary>
-        /// 演算
-        /// </summary>
-        /// <param name="Number1">左辺</param>
-        /// <param name="Number2">右辺</param>
-        /// <param name="Arithmetic">四則演算</param>
-        /// <returns>演算結果</returns>
-        public void Calc()
-        {
-
-            double Ans;
-
-            switch ((ArithmeticEnum)_Arithmetic)
-            {
-
-                case ArithmeticEnum.Plus:
-                    Ans = _Number1 + _Number2;
-                    break;
-
-                case ArithmeticEnum.Minus:
-                    Ans = _Number1 - _Number2;
-                    break;
-
-                case ArithmeticEnum.Multi:
-                    Ans = _Number1 * _Number2;
-                    break;
-
-                case ArithmeticEnum.Division:
-                    Ans = _Number2 == 0d ? 0d : _Number1 / _Number2;
-                    break;
-
-                default:
-                    Ans = 0d;
-                    break;
-
-            }
-
-            Answer = Ans.ToString();
+            Model = new MainWindowModel();
 
         }
 
@@ -124,12 +31,12 @@ namespace BindingSample
         {
             get
             {
-                return _Number1.ToString();
+                return Model.Number1.ToString();
             }
             set
             {
 
-                if (TryParse(value, ref _Number1))
+                if (TryParse(value, ref Model.Number1))
                 {
                     CallPropertyChanged();
                 }
@@ -148,13 +55,13 @@ namespace BindingSample
         {
             get
             {
-                return _Arithmetic;
+                return Model.Arithmetic;
             }
             set
             {
-                if (!_Arithmetic.Equals(value))
+                if (!Model.Arithmetic.Equals(value))
                 {
-                    _Arithmetic = value;
+                    Model.Arithmetic = value;
                     CallPropertyChanged();
                 }
             }
@@ -167,12 +74,12 @@ namespace BindingSample
         {
             get
             {
-                return _Number2.ToString();
+                return Model.Number2.ToString();
             }
             set
             {
 
-                if (TryParse(value, ref _Number2))
+                if (TryParse(value, ref Model.Number2))
                 {
                     CallPropertyChanged();
                 }
@@ -189,19 +96,19 @@ namespace BindingSample
             get
             {
 
-                return _Answer.ToString();
-
-            }
-            set
-            {
-
-                if (TryParse(value, ref _Answer))
-                {
-                    CallPropertyChanged();
-                }
+                return Model.Calc().ToString();
 
             }
 
+        }
+
+        /// <summary>
+        /// 計算実行
+        /// </summary>
+        public void Calc()
+        {
+            //計算イベントを実行
+            CallPropertyChanged("Answer");
         }
 
         /// <summary>
