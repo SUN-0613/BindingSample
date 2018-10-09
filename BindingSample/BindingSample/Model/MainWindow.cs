@@ -4,33 +4,33 @@ namespace BindingSample.Model
 {
 
     /// <summary>
+    /// 四則演算
+    /// </summary>
+    enum ArithmeticEnum
+    {
+        /// <summary>
+        /// 加算
+        /// </summary>
+        Plus = 0,
+        /// <summary>
+        /// 減算
+        /// </summary>
+        Minus,
+        /// <summary>
+        /// 乗算
+        /// </summary>
+        Multi,
+        /// <summary>
+        /// 除算
+        /// </summary>
+        Division
+    }
+
+    /// <summary>
     /// Model
     /// </summary>
     class MainWindow
     {
-
-        /// <summary>
-        /// 四則演算
-        /// </summary>
-        private enum ArithmeticEnum
-        {
-            /// <summary>
-            /// 加算
-            /// </summary>
-            Plus = 0,
-            /// <summary>
-            /// 減算
-            /// </summary>
-            Minus,
-            /// <summary>
-            /// 乗算
-            /// </summary>
-            Multi,
-            /// <summary>
-            /// 除算
-            /// </summary>
-            Division
-        }
 
         /// <summary>
         /// 左辺

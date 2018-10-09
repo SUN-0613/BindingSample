@@ -39,14 +39,6 @@ namespace BindingSample.View
         }
 
         /// <summary>
-        /// ボタンクリック
-        /// </summary>
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            _ViewModel.Calc();
-        }
-
-        /// <summary>
         /// TextBox.GotFocus
         /// </summary>
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)

@@ -11,7 +11,7 @@ namespace BindingSample.Common
     {
 
         /// <summary>
-        /// Event
+        /// PropertyChangedイベント
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 

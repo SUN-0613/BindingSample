@@ -55,8 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\DelegateCommand.cs" />
     <Compile Include="Model\MainWindow.cs" />
-    <Compile Include="Base\ViewModelBase.cs" />
+    <Compile Include="Common\ViewModelBase.cs" />
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

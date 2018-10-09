@@ -1,5 +1,4 @@
 ﻿using System;
-using Common = BindingSample.Common;
 
 namespace BindingSample.ViewModel
 {
@@ -14,6 +13,11 @@ namespace BindingSample.ViewModel
         /// Model
         /// </summary>
         private Model.MainWindow Model;
+
+        /// <summary>
+        /// 計算実行コマンド
+        /// </summary>
+        private Common.DelegateCommand _CalcCommand;
 
         /// <summary>
         /// new
@@ -104,12 +108,21 @@ namespace BindingSample.ViewModel
         }
 
         /// <summary>
-        /// 計算実行
+        /// 計算実行コマンドプロパティ
         /// </summary>
-        public void Calc()
+        public Common.DelegateCommand CalcCommand
         {
-            //計算イベントを実行
-            CallPropertyChanged("Answer");
+            get
+            {
+                if (_CalcCommand == null)
+                {
+                    _CalcCommand = new Common.DelegateCommand(
+                        () => { CallPropertyChanged("Answer"); /*計算イベントを実行*/},
+                        () => true);
+                }
+
+                return _CalcCommand;
+            }
         }
 
         /// <summary>
