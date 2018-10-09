@@ -1,26 +1,27 @@
 ﻿using System;
+using BindingSample.Base;
 
-namespace BindingSample
+namespace BindingSample.ViewModel
 {
 
     /// <summary>
     /// ViewModel
     /// </summary>
-    class MainWindowViewModel : ViewModelBase
+    class MainWindow : ViewModelBase
     {
 
         /// <summary>
         /// Model
         /// </summary>
-        private MainWindowModel Model;
+        private Model.MainWindow Model;
 
         /// <summary>
         /// new
         /// </summary>
-        public MainWindowViewModel()
+        public MainWindow()
         {
 
-            Model = new MainWindowModel();
+            Model = new Model.MainWindow();
 
         }
 

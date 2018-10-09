@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
 
-namespace BindingSample
+namespace BindingSample.Base
 {
 
     /// <summary>

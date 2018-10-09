@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BindingSample
+namespace BindingSample.Model
 {
 
     /// <summary>
     /// Model
     /// </summary>
-    class MainWindowModel
+    class MainWindow
     {
 
         /// <summary>
@@ -54,6 +50,18 @@ namespace BindingSample
         /// 右辺
         /// </summary>
         public double Number2;
+
+        /// <summary>
+        /// new
+        /// </summary>
+        public MainWindow()
+        {
+
+            Number1 = 0d;
+            Arithmetic = (Int32)ArithmeticEnum.Plus;
+            Number2 = 0d;
+
+        }
 
         /// <summary>
         /// 演算

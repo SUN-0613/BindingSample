@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace BindingSample
+namespace BindingSample.View
 {
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
@@ -15,7 +15,7 @@ namespace BindingSample
         /// <summary>
         /// ViewModel
         /// </summary>
-        MainWindowViewModel _ViewModel;
+        ViewModel.MainWindow _ViewModel;
 
         /// <summary>
         /// new
@@ -25,7 +25,7 @@ namespace BindingSample
 
             InitializeComponent();
 
-            _ViewModel = new MainWindowViewModel();
+            _ViewModel = new ViewModel.MainWindow();
             this.DataContext = _ViewModel;
 
         }
