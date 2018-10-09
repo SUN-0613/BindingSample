@@ -53,33 +53,9 @@ namespace BindingSample.View
         }
 
         /// <summary>
-        /// TextBox.PreviewKeyDown
-        /// </summary>
-        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            EnterKeyFocusMove(e);
-        }
-
-        /// <summary>
-        /// ComboBox.PreviewKeyDown
-        /// </summary>
-        private void ComboBox_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            EnterKeyFocusMove(e);
-        }
-
-        /// <summary>
-        /// Button.PreviewKeyDown
-        /// </summary>
-        private void Button_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            EnterKeyFocusMove(e);
-        }
-
-        /// <summary>
         /// Enterキーでフォーカス移動
         /// </summary>
-        private void EnterKeyFocusMove(KeyEventArgs e)
+        private void EnterKeyFocusMove(object sender, KeyEventArgs e)
         {
 
             switch (e.Key)

@@ -22,15 +22,15 @@
             <ColumnDefinition Width="90" />
         </Grid.ColumnDefinitions>
 
-        <TextBox Grid.Row="1" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" VerticalAlignment="Center" Padding="5,0" Text="{Binding Number1}" GotFocus="TextBox_GotFocus" PreviewKeyDown="TextBox_PreviewKeyDown" />
-        <ComboBox Grid.Row="1" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" VerticalAlignment="Center" Padding="5,0" SelectedIndex="{Binding Arithmetic}" PreviewKeyDown="ComboBox_PreviewKeyDown" >
+        <TextBox Grid.Row="1" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" VerticalAlignment="Center" Padding="5,0" Text="{Binding Number1}" GotFocus="TextBox_GotFocus" PreviewKeyDown="EnterKeyFocusMove" />
+        <ComboBox Grid.Row="1" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" VerticalAlignment="Center" Padding="5,0" SelectedIndex="{Binding Arithmetic}" PreviewKeyDown="EnterKeyFocusMove" >
             <ComboBoxItem Content="＋" HorizontalContentAlignment="Center" />
             <ComboBoxItem Content="－" HorizontalContentAlignment="Center" />
             <ComboBoxItem Content="×" HorizontalContentAlignment="Center" />
             <ComboBoxItem Content="÷" HorizontalContentAlignment="Center" />
         </ComboBox>
-        <TextBox Grid.Row="1" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" VerticalAlignment="Center" Padding="5,0" Text="{Binding Number2}" GotFocus="TextBox_GotFocus" PreviewKeyDown="TextBox_PreviewKeyDown" />
-        <Button Grid.Row="1" Grid.RowSpan="1" Grid.Column="3" Grid.ColumnSpan="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Padding="5,0" Content="=" Command="{Binding CalcCommand}" PreviewKeyDown="Button_PreviewKeyDown" />
+        <TextBox Grid.Row="1" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" VerticalAlignment="Center" Padding="5,0" Text="{Binding Number2}" GotFocus="TextBox_GotFocus" PreviewKeyDown="EnterKeyFocusMove" />
+        <Button Grid.Row="1" Grid.RowSpan="1" Grid.Column="3" Grid.ColumnSpan="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Padding="5,0" Content="=" Command="{Binding CalcCommand}" PreviewKeyDown="EnterKeyFocusMove" />
         <TextBlock Grid.Row="1" Grid.RowSpan="1" Grid.Column="4" Grid.ColumnSpan="1" TextAlignment="Left" VerticalAlignment="Center" Padding="5,0" Text="{Binding Answer, Mode=OneWay}" />
 
     </Grid>
