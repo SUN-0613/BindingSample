@@ -1,5 +1,5 @@
 ﻿using System;
-using BindingSample.Base;
+using Common = BindingSample.Common;
 
 namespace BindingSample.ViewModel
 {
@@ -7,7 +7,7 @@ namespace BindingSample.ViewModel
     /// <summary>
     /// ViewModel
     /// </summary>
-    class MainWindow : ViewModelBase
+    class MainWindow : Common.ViewModelBase
     {
 
         /// <summary>
