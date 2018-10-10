@@ -22,6 +22,8 @@ namespace BindingSample.Common
         protected void CallPropertyChanged(string PropertyName = "")
         {
 
+            if (PropertyChanged == null) return;
+
             //プロパティ名が指定されていない場合は呼び出し元メソッド名とする
             if (PropertyName.Length.Equals(0))
             {
