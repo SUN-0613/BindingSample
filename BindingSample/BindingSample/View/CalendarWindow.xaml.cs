@@ -1,30 +1,33 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.ComponentModel;
-using System;
 
 namespace BindingSample.View
 {
     /// <summary>
-    /// View
+    /// CalendarWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class DateWindow : Window, IDisposable
+    public partial class CalendarWindow : Window, IDisposable
     {
 
         /// <summary>
         /// ViewModel
         /// </summary>
-        private ViewModel.DateWindow _ViewModel;
+        private ViewModel.CalendarWindow _ViewModel;
 
         /// <summary>
         /// new
         /// </summary>
-        public DateWindow()
+        /// <param name="SelectDate">現在選択日付</param>
+        public CalendarWindow(DateTime SelectDate)
         {
 
             InitializeComponent();
 
-            _ViewModel = new ViewModel.DateWindow();
+            _ViewModel = new ViewModel.CalendarWindow();
             DataContext = _ViewModel;
+
+            _ViewModel.SelectedDate = SelectDate;
 
             _ViewModel.PropertyChanged += OnPropertyChanged;
 
@@ -47,21 +50,8 @@ namespace BindingSample.View
             switch (e.PropertyName)
             {
 
-                case "CalendarDate":    //カレンダダイアログ表示
-
-                    View.CalendarWindow Dialog = new View.CalendarWindow(_ViewModel.CalendarDate);
-                    bool? Result = Dialog.ShowDialog();
-
-                    if (Result.HasValue && Result.Value == true)
-                    {
-
-                        _ViewModel.UpdateDate(Dialog.ReturnSelectDate());
-
-                    }
-
-                    Dialog.Dispose();
-                    Dialog = null;
-
+                case "Result":
+                    DialogResult = _ViewModel.Result;
                     break;
 
                 default:
@@ -71,5 +61,15 @@ namespace BindingSample.View
 
         }
 
+        /// <summary>
+        /// 選択日付を返す
+        /// </summary>
+        /// <returns>選択日付</returns>
+        public DateTime ReturnSelectDate()
+        {
+            return _ViewModel.SelectedDate;
+        }
+
     }
+
 }

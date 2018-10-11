@@ -56,9 +56,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\DelegateCommand.cs" />
+    <Compile Include="Model\CalendarWindow.cs" />
     <Compile Include="Model\DateWindow.cs" />
     <Compile Include="Model\MainWindow.cs" />
     <Compile Include="Common\ViewModelBase.cs" />
+    <Page Include="View\CalendarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DateWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -71,7 +76,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModel\CalendarWindow.cs" />
     <Compile Include="ViewModel\DateWindow.cs" />
+    <Compile Include="View\CalendarWindow.xaml.cs">
+      <DependentUpon>CalendarWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DateWindow.xaml.cs">
       <DependentUpon>DateWindow.xaml</DependentUpon>
     </Compile>

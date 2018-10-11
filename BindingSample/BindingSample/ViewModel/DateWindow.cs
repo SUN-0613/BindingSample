@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Collections.Generic;
 
 namespace BindingSample.ViewModel
 {
@@ -11,6 +10,9 @@ namespace BindingSample.ViewModel
     class DateWindow : Common.ViewModelBase
     {
 
+        /// <summary>
+        /// Model
+        /// </summary>
         private Model.DateWindow Model;
 
         /// <summary>
@@ -183,6 +185,29 @@ namespace BindingSample.ViewModel
         }
 
         /// <summary>
+        /// カレンダー呼出コマンド
+        /// </summary>
+        private Common.DelegateCommand _CalendarCommand;
+
+        /// <summary>
+        /// カレンダ表示日付
+        /// </summary>
+        private DateTime _CalendarDate;
+
+        /// <summary>
+        /// カレンダ表示日付プロパティ
+        /// </summary>
+        public DateTime CalendarDate
+        {
+            get { return _CalendarDate; }
+            set
+            {
+                _CalendarDate = value;
+                CallPropertyChanged();
+            }
+        }
+
+        /// <summary>
         /// new
         /// </summary>
         public DateWindow()
@@ -205,7 +230,43 @@ namespace BindingSample.ViewModel
 
         }
 
+        /// <summary>
+        /// カレンダー呼出コマンドプロパティ
+        /// </summary>
+        public Common.DelegateCommand CalendarCommand
+        {
+            get
+            {
+                if (_CalendarCommand == null)
+                {
+                    _CalendarCommand = new Common.DelegateCommand(
+                        () => 
+                        {
+                            CalendarDate = Model.MakeDate(Year[SelectedIndexYear], Month[SelectedIndexMonth], Day[SelectedIndexDay]);
+                        },
+                        () => true);
+                }
 
+                return _CalendarCommand;
+            }
+        }
+
+        /// <summary>
+        /// カレンダで選択した日付を反映
+        /// </summary>
+        /// <param name="SelectedDate">カレンダで選択した日付</param>
+        public void UpdateDate(DateTime SelectedDate)
+        {
+
+            string sYear = SelectedDate.Year.ToString("0000");
+            string sMonth = SelectedDate.Month.ToString("00");
+            string sDay = SelectedDate.Day.ToString("00");
+
+            SelectedIndexYear = Year.IndexOf(sYear);
+            SelectedIndexMonth = Month.IndexOf(sMonth);
+            SelectedIndexDay = Day.IndexOf(sDay);
+
+        }
 
     }
 

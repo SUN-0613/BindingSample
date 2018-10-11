@@ -88,7 +88,7 @@ namespace BindingSample.Model
         /// <param name="Year">年</param>
         /// <param name="Month">月</param>
         /// <param name="Day">日</param>
-        /// <returns></returns>
+        /// <returns>日付(文字列型)</returns>
         public string MakeDateString(string Year, string Month, string Day)
         {
 
@@ -107,6 +107,34 @@ namespace BindingSample.Model
             Str = null;
 
             return Return.ToString("yyyy/MM/dd");
+
+        }
+
+        /// <summary>
+        /// Comboboxで選択した日付を日付型に変換
+        /// </summary>
+        /// <param name="Year">年</param>
+        /// <param name="Month">月</param>
+        /// <param name="Day">日</param>
+        /// <returns>日付(日付型)</returns>
+        public DateTime MakeDate(string Year, string Month, string Day)
+        {
+
+            StringBuilder Str = new StringBuilder();
+            DateTime Return;
+
+            Str.Clear();
+            Str.Append(Year).Append("/").Append(Month).Append("/").Append(Day);
+
+            if (!DateTime.TryParse(Str.ToString(), out Return))
+            {
+                Return = DateTime.Parse("1900/01/01");
+            }
+
+            Str.Clear();
+            Str = null;
+
+            return Return;
 
         }
 
