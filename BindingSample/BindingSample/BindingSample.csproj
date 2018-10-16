@@ -56,10 +56,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\DelegateCommand.cs" />
+    <Compile Include="Converter\EnumToBool.cs" />
     <Compile Include="Model\CalendarWindow.cs" />
     <Compile Include="Model\DateWindow.cs" />
     <Compile Include="Model\MainWindow.cs" />
     <Compile Include="Common\ViewModelBase.cs" />
+    <Compile Include="Model\SelectMeal.cs" />
+    <Compile Include="ViewModel\SelectMeal.cs" />
+    <Compile Include="View\SelectMeal.xaml.cs">
+      <DependentUpon>SelectMeal.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\CalendarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -88,6 +94,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\SelectMeal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewModel\MainWindow.cs" />
